@@ -20,7 +20,7 @@ const AppNavigator = createStackNavigator(
       screen: PlaceAnOrder,
     },
   },
-  {headerMode: null, initialRouteName: 'Home'},
+  {headerMode: null, initialRouteName: 'SignIn'},
 );
 
 export default createAppContainer(AppNavigator);
