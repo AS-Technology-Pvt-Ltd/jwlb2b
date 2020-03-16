@@ -4,7 +4,7 @@ import colors from '../styles/colors';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import ImageContainer from './ImageContainer';
 const InputField = props => {
-  const {icon, placeholder, maxLength} = props;
+  const {icon, placeholder, maxLength, onChangeText, value} = props;
   return (
     <View style={styles.inputContainer}>
       <View style={styles.iconContainer}>
@@ -19,6 +19,8 @@ const InputField = props => {
           placeholderTextColor={colors.black}
           maxLength={maxLength}
           selectTextOnFocus={true}
+          onChangeText={onChangeText}
+          value={value}
         />
       </View>
     </View>
