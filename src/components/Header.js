@@ -21,12 +21,12 @@ const Header = () => {
         </View>
       </View>
       <View style={styles.rightContainer}>
-        <View style={{width: 30, height: 30, marginTop: 2}}>
+        <View style={{width: 30, height: 30, marginTop: 5}}>
           <TouchableOpacity onPress={() => Alert.alert('Under Development')}>
             <ImageContainer source={require('../assets/search.png')} />
           </TouchableOpacity>
         </View>
-        <View style={{width: 30, height: 30, marginTop: 2}}>
+        <View style={{width: 30, height: 30, marginTop: 5}}>
           <TouchableOpacity onPress={() => Alert.alert('Under Development')}>
             <ImageContainer source={require('../assets/cart.png')} />
           </TouchableOpacity>

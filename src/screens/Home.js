@@ -6,6 +6,7 @@ import {
   SafeAreaView,
   StyleSheet,
   TouchableOpacity,
+  Alert,
 } from 'react-native';
 import MasterLayout from '../components/MasterLayout';
 import Header from '../components/Header';
@@ -62,12 +63,14 @@ class Home extends React.Component {
           style={{height: '100%'}}
           contentContainerStyle={{paddingBottom: hp('40%')}}>
           <View style={styles.twoBoxWrap}>
-            <View style={styles.iconBox}>
-              <View style={styles.iconContainer}>
-                <ImageContainer source={require('../assets/bag.png')} />
+            <TouchableOpacity onPress={() => Alert.alert('Under Development')}>
+              <View style={styles.iconBox}>
+                <View style={styles.iconContainer}>
+                  <ImageContainer source={require('../assets/bag.png')} />
+                </View>
+                <Text>Bhaav Today</Text>
               </View>
-              <Text>Bhaav Today</Text>
-            </View>
+            </TouchableOpacity>
             <TouchableOpacity
               onPress={() => this.props.navigation.navigate('PlaceAnOrder')}>
               <View style={styles.iconBox}>
@@ -81,62 +84,80 @@ class Home extends React.Component {
             </TouchableOpacity>
           </View>
           <View style={styles.twoBoxWrap}>
-            <View style={styles.iconBox}>
-              <View style={styles.iconContainer}>
-                <ImageContainer
-                  source={require('../assets/customiseorder.png')}
-                />
+            <TouchableOpacity onPress={() => Alert.alert('Under Development')}>
+              <View style={styles.iconBox}>
+                <View style={styles.iconContainer}>
+                  <ImageContainer
+                    source={require('../assets/customiseorder.png')}
+                  />
+                </View>
+                <Text>Customized Order</Text>
               </View>
-              <Text>Customized Order</Text>
-            </View>
-            <View style={styles.iconBox}>
-              <View style={styles.iconContainer}>
-                <ImageContainer source={require('../assets/delivery.png')} />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => Alert.alert('Under Development')}>
+              <View style={styles.iconBox}>
+                <View style={styles.iconContainer}>
+                  <ImageContainer source={require('../assets/delivery.png')} />
+                </View>
+                <Text style={{flex: 1, flexWrap: 'wrap'}}>
+                  Track Your Order
+                </Text>
               </View>
-              <Text style={{flex: 1, flexWrap: 'wrap'}}>Track Your Order</Text>
-            </View>
+            </TouchableOpacity>
           </View>
           <View style={styles.twoBoxWrap}>
-            <View style={styles.iconBox}>
-              <View style={styles.iconContainer}>
-                <ImageContainer source={require('../assets/returnboy.png')} />
+            <TouchableOpacity onPress={() => Alert.alert('Under Development')}>
+              <View style={styles.iconBox}>
+                <View style={styles.iconContainer}>
+                  <ImageContainer source={require('../assets/returnboy.png')} />
+                </View>
+                <Text>Initiate Return</Text>
               </View>
-              <Text>Initiate Return</Text>
-            </View>
-            <View style={styles.iconBox}>
-              <View style={styles.iconContainer}>
-                <ImageContainer source={require('../assets/accounts.png')} />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => Alert.alert('Under Development')}>
+              <View style={styles.iconBox}>
+                <View style={styles.iconContainer}>
+                  <ImageContainer source={require('../assets/accounts.png')} />
+                </View>
+                <Text>Accounts</Text>
               </View>
-              <Text>Accounts</Text>
-            </View>
+            </TouchableOpacity>
           </View>
           <View style={styles.twoBoxWrap}>
-            <View style={styles.iconBox}>
-              <View style={styles.iconContainer}>
-                <ImageContainer source={require('../assets/support.png')} />
+            <TouchableOpacity onPress={() => Alert.alert('Under Development')}>
+              <View style={styles.iconBox}>
+                <View style={styles.iconContainer}>
+                  <ImageContainer source={require('../assets/support.png')} />
+                </View>
+                <Text>Book A Complaint</Text>
               </View>
-              <Text>Book A Complaint</Text>
-            </View>
-            <View style={styles.iconBox}>
-              <View style={styles.iconContainer}>
-                <ImageContainer source={require('../assets/support.png')} />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => Alert.alert('Under Development')}>
+              <View style={styles.iconBox}>
+                <View style={styles.iconContainer}>
+                  <ImageContainer source={require('../assets/support.png')} />
+                </View>
+                <Text>Support</Text>
               </View>
-              <Text>Support</Text>
-            </View>
+            </TouchableOpacity>
           </View>
           <View style={styles.twoBoxWrap}>
-            <View style={styles.iconBox}>
-              <View style={styles.iconContainer}>
-                <ImageContainer source={require('../assets/policy.png')} />
+            <TouchableOpacity onPress={() => Alert.alert('Under Development')}>
+              <View style={styles.iconBox}>
+                <View style={styles.iconContainer}>
+                  <ImageContainer source={require('../assets/policy.png')} />
+                </View>
+                <Text>Our Policy</Text>
               </View>
-              <Text>Our Policy</Text>
-            </View>
-            <View style={styles.iconBox}>
-              <View style={styles.iconContainer}>
-                <ImageContainer source={require('../assets/folder.png')} />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => Alert.alert('Under Development')}>
+              <View style={styles.iconBox}>
+                <View style={styles.iconContainer}>
+                  <ImageContainer source={require('../assets/folder.png')} />
+                </View>
+                <Text>Campaigns</Text>
               </View>
-              <Text>Campaigns</Text>
-            </View>
+            </TouchableOpacity>
           </View>
         </ScrollView>
       </MasterLayout>
