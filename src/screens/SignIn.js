@@ -5,6 +5,7 @@ import {
   StyleSheet,
   KeyboardAvoidingView,
   TouchableOpacity,
+  Alert,
 } from 'react-native';
 import InputField from '../components/InputField';
 import {
@@ -16,46 +17,93 @@ import colors from '../styles/colors';
 import Logo from '../components/Logo';
 import Navigator from '../components/Navigator';
 import ScreenTitle from '../components/ScreenTitle';
+import MasterLayout from '../components/MasterLayout';
 
 export default class SignIn extends Component {
-  render() {
-    return (
-      <KeyboardAvoidingView
-        style={styles.container}
-        behavior="padding"
-        disabled>
-        <View style={styles.logo}>
-          <Logo />
-        </View>
-        <ScreenTitle title="LOGIN INTO YOUR ACCOUNT" />
-        <InputField
-          icon={require('../assets/phone.png')}
-          placeholder={'Enter Your Mobile No or Email Id'}
-          maxLength={22}
-        />
-        <InputField
-          icon={require('../assets/lock.png')}
-          placeholder={'Your Password'}
-          maxLength={12}
-        />
-        <TouchableOpacity>
-          <View style={styles.iconContainer}>
-            <ImageContainer source={require('../assets/forward.png')} />
-          </View>
-        </TouchableOpacity>
+  constructor() {
+    super();
+    this.state = {
+      userEmailorPhone: '',
+      password: '',
+    };
+  }
 
-        <View style={styles.customNavigator}>
-          <Navigator title={'Or,Sign In Using OTP'} />
-        </View>
-        <View style={styles.navigator}>
-          <View>
-            <Navigator title={'Sign Up'} />
+  signInHandler = () => {
+    const {userEmailorPhone, password} = this.state;
+    if (userEmailorPhone && password) {
+      if (
+        userEmailorPhone === 'admin@xyz.com' ||
+        (userEmailorPhone === '1234567890' && password === 'Admin12@')
+      ) {
+        Alert.alert(userEmailorPhone, password);
+      } else {
+        Alert.alert('Input parameters are not valid');
+      }
+    } else {
+      Alert.alert('Input parameters are not valid');
+    }
+  };
+
+  userEmailorPhoneHandler = value => {
+    this.setState({userEmailorPhone: value});
+  };
+  userPasswordHandler = value => {
+    this.setState({password: value});
+  };
+  render() {
+    const {userEmailorPhone, password} = this.state;
+    return (
+      <MasterLayout>
+        <KeyboardAvoidingView
+          style={styles.container}
+          behavior="padding"
+          disabled>
+          <View style={styles.logo}>
+            <Logo />
           </View>
-          <View>
-            <Navigator title={'Forgot Password ?'} />
+          <ScreenTitle title="LOGIN INTO YOUR ACCOUNT" />
+          <InputField
+            icon={require('../assets/phone.png')}
+            placeholder={'Enter Your Mobile No or Email Id'}
+            maxLength={22}
+            value={userEmailorPhone}
+            onChangeText={this.userEmailorPhoneHandler}
+          />
+          <InputField
+            icon={require('../assets/lock.png')}
+            placeholder={'Your Password'}
+            maxLength={12}
+            value={password}
+            onChangeText={this.userPasswordHandler}
+          />
+          <TouchableOpacity onPress={() => this.signInHandler()}>
+            <View style={styles.iconContainer}>
+              <ImageContainer source={require('../assets/forward.png')} />
+            </View>
+          </TouchableOpacity>
+
+          <View style={styles.customNavigator}>
+            <Navigator
+              title={'Or,Sign In Using OTP'}
+              handler={() => Alert.alert('Under Development')}
+            />
           </View>
-        </View>
-      </KeyboardAvoidingView>
+          <View style={styles.navigator}>
+            <View>
+              <Navigator
+                title={'Sign Up'}
+                handler={() => Alert.alert('Under Development')}
+              />
+            </View>
+            <View>
+              <Navigator
+                title={'Forgot Password ?'}
+                handler={() => Alert.alert('Under Development')}
+              />
+            </View>
+          </View>
+        </KeyboardAvoidingView>
+      </MasterLayout>
     );
   }
 }
