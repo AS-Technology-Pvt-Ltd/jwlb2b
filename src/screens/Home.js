@@ -1,6 +1,12 @@
 import React from 'react';
 
-import {View, Text, SafeAreaView, StyleSheet} from 'react-native';
+import {
+  View,
+  Text,
+  SafeAreaView,
+  StyleSheet,
+  TouchableOpacity,
+} from 'react-native';
 import MasterLayout from '../components/MasterLayout';
 import Header from '../components/Header';
 import {ScrollView} from 'react-native-gesture-handler';
@@ -62,12 +68,17 @@ class Home extends React.Component {
               </View>
               <Text>Bhaav Today</Text>
             </View>
-            <View style={styles.iconBox}>
-              <View style={styles.iconContainer}>
-                <ImageContainer source={require('../assets/placeorder.png')} />
+            <TouchableOpacity
+              onPress={() => this.props.navigation.navigate('PlaceAnOrder')}>
+              <View style={styles.iconBox}>
+                <View style={styles.iconContainer}>
+                  <ImageContainer
+                    source={require('../assets/placeorder.png')}
+                  />
+                </View>
+                <Text>Place An Order</Text>
               </View>
-              <Text>Place An Order</Text>
-            </View>
+            </TouchableOpacity>
           </View>
           <View style={styles.twoBoxWrap}>
             <View style={styles.iconBox}>

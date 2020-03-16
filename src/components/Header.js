@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet, Text} from 'react-native';
+import {View, StyleSheet, Text, Alert, TouchableOpacity} from 'react-native';
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
@@ -11,15 +11,26 @@ const Header = () => {
   return (
     <View style={styles.container}>
       <View style={styles.leftContainer}>
-        <View styles={styles.leftIcon}>
+        <TouchableOpacity onPress={() => Alert.alert('Under Development')}>
           <ImageContainer source={require('../assets/menu.png')} />
-        </View>
+        </TouchableOpacity>
       </View>
       <View style={styles.centerContainer}>
-        <Text>Hello</Text>
+        <View style={{height: 50}}>
+          <ImageContainer source={require('../assets/logo.png')} />
+        </View>
       </View>
       <View style={styles.rightContainer}>
-        <Text>Hello</Text>
+        <View style={{width: 30, height: 30, marginTop: 2}}>
+          <TouchableOpacity onPress={() => Alert.alert('Under Development')}>
+            <ImageContainer source={require('../assets/search.png')} />
+          </TouchableOpacity>
+        </View>
+        <View style={{width: 30, height: 30, marginTop: 2}}>
+          <TouchableOpacity onPress={() => Alert.alert('Under Development')}>
+            <ImageContainer source={require('../assets/cart.png')} />
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
   );
@@ -27,28 +38,25 @@ const Header = () => {
 
 const styles = StyleSheet.create({
   container: {
-    borderWidth: 1,
+    // borderWidth: 1,
     flexDirection: 'row',
     backgroundColor: colors.white,
     height: 40,
   },
   leftContainer: {
-    width: '10%',
-    backgroundColor: 'red',
+    width: '13%',
+    paddingHorizontal: 12,
   },
-  leftIcon: {
-    width: '10%',
-    borderWidth: 1,
-    height: '10%',
-    backgroundColor: 'red',
-  },
+
   centerContainer: {
-    width: '60%',
-    backgroundColor: 'yellow',
+    width: '62%',
   },
   rightContainer: {
     width: '20%',
-    backgroundColor: 'pink',
+    // borderWidth: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    //backgroundColor: 'pink',
   },
 });
 export default Header;

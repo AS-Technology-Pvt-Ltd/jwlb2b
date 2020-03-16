@@ -2,10 +2,10 @@ import React from 'react';
 import {View, Image, StyleSheet} from 'react-native';
 
 const ImageContainer = props => {
-  const {source} = props;
+  const {source, imageStyles} = props;
   return (
     <View style={styles.ImageContainer}>
-      <Image source={source} style={styles.image} />
+      <Image source={source} style={{...styles.image, ...imageStyles}} />
     </View>
   );
 };

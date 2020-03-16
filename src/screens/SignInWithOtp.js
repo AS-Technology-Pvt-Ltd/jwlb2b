@@ -19,7 +19,7 @@ import Navigator from '../components/Navigator';
 import ScreenTitle from '../components/ScreenTitle';
 import MasterLayout from '../components/MasterLayout';
 
-export default class SignIn extends Component {
+export default class SignInWithOtp extends Component {
   constructor() {
     super();
     this.state = {
@@ -63,19 +63,12 @@ export default class SignIn extends Component {
           </View>
           <ScreenTitle title="LOG INTO YOUR ACCOUNT" />
           <InputField
-            icon={require('../assets/phone.png')}
-            placeholder={'Enter Your Mobile No or Email Id'}
+            placeholder={'OTP Auto Read'}
             maxLength={22}
             value={userEmailorPhone}
             onChangeText={this.userEmailorPhoneHandler}
           />
-          <InputField
-            icon={require('../assets/lock.png')}
-            placeholder={'Your Password'}
-            maxLength={12}
-            value={password}
-            onChangeText={this.userPasswordHandler}
-          />
+
           <TouchableOpacity onPress={() => this.signInHandler()}>
             <View style={styles.iconContainer}>
               <ImageContainer source={require('../assets/forward.png')} />
@@ -84,8 +77,8 @@ export default class SignIn extends Component {
 
           <View style={styles.customNavigator}>
             <Navigator
-              title={'Or,Sign In Using OTP'}
-              handler={() => this.props.navigation.navigate('SignInWithOtp')}
+              title={'Or,Sign In Using Password'}
+              handler={() => this.props.navigation.navigate('SignIn')}
             />
           </View>
           <View style={styles.navigator}>
