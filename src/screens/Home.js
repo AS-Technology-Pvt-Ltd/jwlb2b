@@ -1,18 +1,9 @@
 import React from 'react';
-
-import {
-  View,
-  Text,
-  SafeAreaView,
-  StyleSheet,
-  TouchableOpacity,
-  Alert,
-} from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity, Alert} from 'react-native';
 import MasterLayout from '../components/MasterLayout';
 import Header from '../components/Header';
 import {ScrollView} from 'react-native-gesture-handler';
 import ImageContainer from '../components/ImageContainer';
-
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -185,7 +176,7 @@ const styles = StyleSheet.create({
   iconBox: {
     width: wp('30%'),
     borderWidth: 1,
-    borderColor: '#0F5B6D',
+    borderColor: colors.darkGray,
     borderRadius: 5,
     alignItems: 'center',
     paddingVertical: 12,
@@ -196,24 +187,16 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   dashboardBox: {
-    //borderWidth: 1,
     flexGrow: 1,
     flexDirection: 'row',
     paddingTop: 5,
     justifyContent: 'center',
-    borderTopColor: colors.lightBlue,
-    borderTopWidth: 4,
-    marginTop: '3%',
   },
   dashboardBoxIcon: {
-    //borderWidth: 1,
-    marginTop: '3%',
     flexGrow: 2,
     justifyContent: 'center',
     flexDirection: 'row',
     paddingTop: 5,
-    borderTopColor: colors.black,
-    borderTopWidth: 4,
   },
 });
 

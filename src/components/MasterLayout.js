@@ -1,7 +1,6 @@
 import React from 'react';
 import {SafeAreaView, View, StyleSheet, StatusBar} from 'react-native';
 import colors from '../styles/colors';
-import {color} from 'react-native-reanimated';
 
 class MasterLayout extends React.Component {
   render() {

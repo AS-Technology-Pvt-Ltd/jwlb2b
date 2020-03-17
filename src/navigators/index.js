@@ -5,6 +5,7 @@ import SignIn from '../screens/SignIn';
 import Home from '../screens/Home';
 import SignInWithOtp from '../screens/SignInWithOtp';
 import PlaceAnOrder from '../screens/PlaceAnOrder';
+import SubCategory from '../screens/SubCategory';
 const AppNavigator = createStackNavigator(
   {
     SignIn: {
@@ -19,8 +20,11 @@ const AppNavigator = createStackNavigator(
     PlaceAnOrder: {
       screen: PlaceAnOrder,
     },
+    SubCategory: {
+      screen: SubCategory,
+    },
   },
-  {headerMode: null, initialRouteName: 'SignIn'},
+  {headerMode: null, initialRouteName: 'Home'},
 );
 
 export default createAppContainer(AppNavigator);
