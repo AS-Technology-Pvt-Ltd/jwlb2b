@@ -79,16 +79,19 @@ class SubCategory extends React.Component {
     const subCategoryJSX = subCategory.map(item => {
       return (
         <View style={styles.subCategoryBox} key={item.id}>
-          <View style={styles.imageTextContainer}>
-            <ImageContainer
-              source={item.image}
-              imageStyles={{
-                width: '100%',
-                height: '100%',
-              }}
-            />
-          </View>
-          <Text style={styles.titleText}>{item.title}</Text>
+          <TouchableOpacity
+            onPress={() => this.props.navigation.navigate('ProductDetails')}>
+            <View style={styles.imageTextContainer}>
+              <ImageContainer
+                source={item.image}
+                imageStyles={{
+                  width: '100%',
+                  height: '100%',
+                }}
+              />
+            </View>
+            <Text style={styles.titleText}>{item.title}</Text>
+          </TouchableOpacity>
         </View>
       );
     });
