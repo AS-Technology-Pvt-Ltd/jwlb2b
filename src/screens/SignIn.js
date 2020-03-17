@@ -36,7 +36,7 @@ export default class SignIn extends Component {
         userEmailorPhone === 'admin@xyz.com' ||
         (userEmailorPhone === '1234567890' && password === 'Admin12@')
       ) {
-        this.props.navigation.navigate('Home');
+        this.props.navigation.navigate('Dashboard');
       } else {
         Alert.alert('Input parameters are not valid');
       }

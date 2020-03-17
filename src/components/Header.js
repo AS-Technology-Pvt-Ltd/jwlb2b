@@ -3,12 +3,12 @@ import {View, StyleSheet, Alert, TouchableOpacity} from 'react-native';
 import colors from '../styles/colors';
 import ImageContainer from './ImageContainer';
 
-const Header = () => {
+const Header = props => {
   return (
     <View>
       <View style={styles.container}>
         <View style={styles.leftContainer}>
-          <TouchableOpacity onPress={() => Alert.alert('Under Development')}>
+          <TouchableOpacity onPress={() => props.navigation.toggleDrawer()}>
             <ImageContainer source={require('../assets/menu.png')} />
           </TouchableOpacity>
         </View>

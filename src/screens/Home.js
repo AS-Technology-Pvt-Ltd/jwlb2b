@@ -12,15 +12,11 @@ import colors from '../styles/colors';
 
 class Home extends React.Component {
   render() {
+    const {navigation} = this.props;
     return (
       <MasterLayout>
-        <Header />
-        <View
-          style={{
-            flexDirection: 'row',
-            marginTop: '2%',
-            borderBottomWidth: 0.3,
-          }}>
+        <Header navigation={navigation} />
+        <View style={styles.dashboardContainer}>
           <View style={styles.dashboardBox}>
             <View style={styles.dashboardIcon}>
               <ImageContainer source={require('../assets/key.png')} />
@@ -162,6 +158,11 @@ const styles = StyleSheet.create({
     height: 28,
     paddingBottom: 5,
     alignSelf: 'center',
+  },
+  dashboardContainer: {
+    flexDirection: 'row',
+    marginTop: '2%',
+    borderBottomWidth: 0.3,
   },
   twoBoxWrap: {
     flexDirection: 'row',
