@@ -25,11 +25,6 @@ class PlaceAnOrder extends React.Component {
     return (
       <MasterLayout>
         <Header />
-        <View style={{flexDirection: 'row', marginTop: '2%'}}>
-          <View style={styles.dashboardBox}></View>
-          <View style={styles.dashboardBoxIcon}></View>
-          <View style={styles.dashboardBox}></View>
-        </View>
 
         <ScrollView
           style={{height: '100%'}}
@@ -40,7 +35,8 @@ class PlaceAnOrder extends React.Component {
           </Text>
 
           <View style={styles.twoBoxWrap}>
-            <TouchableOpacity onPress={() => Alert.alert('Under Development')}>
+            <TouchableOpacity
+              onPress={() => this.props.navigation.navigate('SubCategory')}>
               <CategoryBox
                 source={require('../assets/4.jpg')}
                 title="Gold Jwellery"
@@ -89,33 +85,13 @@ class PlaceAnOrder extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  dashboardIcon: {
-    width: 28,
-    height: 28,
-    paddingBottom: 5,
-    alignSelf: 'center',
-  },
   twoBoxWrap: {
     flexDirection: 'row',
     width: wp('100%'),
     justifyContent: 'space-around',
     marginTop: hp('6%'),
   },
-  iconContainer: {
-    width: 60,
-    height: 70,
-    paddingBottom: 5,
-  },
 
-  iconBox: {
-    width: wp('30%'),
-    borderWidth: 1,
-    borderColor: '#0F5B6D',
-    borderRadius: 5,
-    alignItems: 'center',
-    paddingVertical: 12,
-    marginTop: hp('3%'),
-  },
   heading: {
     paddingTop: 15,
     textAlign: 'center',
@@ -124,26 +100,6 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     textAlign: 'center',
     color: 'grey',
-  },
-  dashboardBox: {
-    //borderWidth: 1,
-    flexGrow: 1,
-    flexDirection: 'row',
-    paddingTop: 5,
-    justifyContent: 'center',
-    borderTopColor: colors.lightBlue,
-    borderTopWidth: 4,
-    marginTop: '3%',
-  },
-  dashboardBoxIcon: {
-    //borderWidth: 1,
-    marginTop: '3%',
-    flexGrow: 2,
-    justifyContent: 'center',
-    flexDirection: 'row',
-    paddingTop: 5,
-    borderTopColor: colors.black,
-    borderTopWidth: 4,
   },
 });
 

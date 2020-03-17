@@ -35,10 +35,8 @@ const styles = StyleSheet.create({
     borderRadius: 100,
     borderColor: colors.lightBlue,
     flexDirection: 'row',
-    paddingTop: 5,
-    paddingBottom: 5,
+    paddingVertical: 5,
     height: 50,
-
     marginVertical: hp('1%'),
   },
   iconContainer: {
