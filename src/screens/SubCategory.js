@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import MasterLayout from '../components/MasterLayout';
 import Header from '../components/Header';
 import {ScrollView} from 'react-native-gesture-handler';
@@ -79,9 +79,9 @@ class SubCategory extends React.Component {
     const subCategoryJSX = subCategory.map(item => {
       return (
         <View style={styles.subCategoryBox} key={item.id}>
-          <TouchableOpacity
-            onPress={() => this.props.navigation.navigate('ProductDetails')}>
-            <View style={styles.imageTextContainer}>
+          <View style={styles.imageTextContainer}>
+            <TouchableOpacity
+              onPress={() => this.props.navigation.navigate('ProductDetails')}>
               <ImageContainer
                 source={item.image}
                 imageStyles={{
@@ -89,15 +89,17 @@ class SubCategory extends React.Component {
                   height: '100%',
                 }}
               />
-            </View>
-            <Text style={styles.titleText}>{item.title}</Text>
-          </TouchableOpacity>
+            </TouchableOpacity>
+          </View>
+
+          <Text style={styles.titleText}>{item.title}</Text>
         </View>
       );
     });
+    const {navigation} = this.props;
     return (
       <MasterLayout>
-        <Header />
+        <Header navigation={navigation} />
 
         <ScrollView
           // style={{height: '100%'}}

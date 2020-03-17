@@ -6,7 +6,7 @@ import PlaceAnOrder from '../screens/PlaceAnOrder';
 import SubCategory from '../screens/SubCategory';
 import {createDrawerNavigator} from 'react-navigation-drawer';
 import Home from '../screens/Home';
-
+import ProductDetails from '../screens/ProductDetails';
 const Dashboard = createAppContainer(
   createDrawerNavigator({
     Home: Home,
@@ -28,8 +28,11 @@ const AppNavigator = createStackNavigator(
       screen: SubCategory,
     },
     Dashboard: {screen: Dashboard},
+    ProductDetails: {
+      screen: ProductDetails,
+    },
   },
-  {headerMode: null, initialRouteName: 'SignIn'},
+  {headerMode: null, initialRouteName: 'Dashboard'},
 );
 
 export default createAppContainer(AppNavigator);
