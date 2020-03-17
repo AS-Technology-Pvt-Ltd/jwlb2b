@@ -13,6 +13,88 @@ import fontSize from '../styles/fontSize';
 
 class SubCategory extends React.Component {
   render() {
+    const subCategory = [
+      {
+        id: 1,
+        title: 'Earrings',
+        image: require('../assets/earrings.png'),
+      },
+      {
+        id: 2,
+        title: 'Ladies Rings',
+        image: require('../assets/ladiesrings.png'),
+      },
+      {
+        id: 3,
+        title: 'Gents Rings',
+        image: require('../assets/gentsrings.png'),
+      },
+      {
+        id: 4,
+        title: 'Pendant',
+        image: require('../assets/pendant.png'),
+      },
+      {
+        id: 5,
+        title: 'Ladies Casting Rings',
+        image: require('../assets/ladiescastingrings.png'),
+      },
+      {
+        id: 6,
+        title: 'Necklace',
+        image: require('../assets/necklace.png'),
+      },
+      {
+        id: 7,
+        title: 'Gents Casting Rings',
+        image: require('../assets/gentscastingrings.png'),
+      },
+      {
+        id: 8,
+        title: 'Bangles',
+        image: require('../assets/bangles.png'),
+      },
+      {
+        id: 9,
+        title: 'Kanthi Sets',
+        image: require('../assets/kanthisets.png'),
+      },
+      {
+        id: 10,
+        title: 'Mangalsutra',
+        image: require('../assets/mangalsutra.png'),
+      },
+      {
+        id: 11,
+        title: 'Tika',
+        image: require('../assets/tika.png'),
+      },
+      {
+        id: 12,
+        title: 'Nath',
+        image: require('../assets/nath.png'),
+      },
+    ];
+
+    const subCategoryJSX = subCategory.map(item => {
+      return (
+        <View style={styles.subCategoryBox} key={item.id}>
+          <TouchableOpacity
+            onPress={() => this.props.navigation.navigate('ProductDetails')}>
+            <View style={styles.imageTextContainer}>
+              <ImageContainer
+                source={item.image}
+                imageStyles={{
+                  width: '100%',
+                  height: '100%',
+                }}
+              />
+            </View>
+            <Text style={styles.titleText}>{item.title}</Text>
+          </TouchableOpacity>
+        </View>
+      );
+    });
     return (
       <MasterLayout>
         <Header />
@@ -24,69 +106,7 @@ class SubCategory extends React.Component {
           <Text style={styles.subHeading}>
             Choose a sub category as per your requirements
           </Text>
-          <View style={styles.threeBoxContainer}>
-            <View style={styles.subCategoryBox}>
-              <ImageContainer
-                source={require('../assets/earrings.png')}
-                imageStyles={{width: '100%', height: '100%'}}
-              />
-              <Text style={styles.titleText}>Earrings</Text>
-            </View>
-            <View style={styles.subCategoryBox}>
-              <ImageContainer source={require('../assets/ladiesrings.png')} />
-              <Text style={styles.titleText}>Ladies Rings</Text>
-            </View>
-            <View style={styles.subCategoryBox}>
-              <ImageContainer source={require('../assets/gentsrings.png')} />
-              <Text style={styles.titleText}>Gents Rings</Text>
-            </View>
-          </View>
-          <View style={styles.threeBoxContainer}>
-            <View style={styles.subCategoryBox}>
-              <ImageContainer source={require('../assets/pendant.png')} />
-              <Text style={styles.titleText}>Pendant</Text>
-            </View>
-            <View style={styles.subCategoryBox}>
-              <ImageContainer
-                source={require('../assets/ladiescastingrings.png')}
-              />
-              <Text style={styles.titleText}>Ladies Casting Rings</Text>
-            </View>
-            <View style={styles.subCategoryBox}>
-              <ImageContainer source={require('../assets/necklace.png')} />
-              <Text style={styles.titleText}>Necklace</Text>
-            </View>
-          </View>
-          <View style={styles.threeBoxContainer}>
-            <View style={styles.subCategoryBox}>
-              <ImageContainer
-                source={require('../assets/gentscastingrings.png')}
-              />
-              <Text style={styles.titleText}>Gents Casting Rings</Text>
-            </View>
-            <View style={styles.subCategoryBox}>
-              <ImageContainer source={require('../assets/bangles.png')} />
-              <Text style={styles.titleText}>Bangles</Text>
-            </View>
-            <View style={styles.subCategoryBox}>
-              <ImageContainer source={require('../assets/kanthisets.png')} />
-              <Text style={styles.titleText}>Kanthi Sets</Text>
-            </View>
-          </View>
-          <View style={styles.threeBoxContainer}>
-            <View style={styles.subCategoryBox}>
-              <ImageContainer source={require('../assets/mangalsutra.png')} />
-              <Text style={styles.titleText}>Mangalsutra</Text>
-            </View>
-            <View style={styles.subCategoryBox}>
-              <ImageContainer source={require('../assets/tika.png')} />
-              <Text style={styles.titleText}>Tika</Text>
-            </View>
-            <View style={styles.subCategoryBox}>
-              <ImageContainer source={require('../assets/nath.png')} />
-              <Text style={styles.titleText}>Nath</Text>
-            </View>
-          </View>
+          <View style={styles.content}>{subCategoryJSX}</View>
         </ScrollView>
       </MasterLayout>
     );
@@ -103,20 +123,30 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: 'grey',
   },
-  threeBoxContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    marginVertical: '5%',
-  },
-  subCategoryBox: {
+  imageTextContainer: {
+    width: '100%',
+    height: '130%',
     borderWidth: 0.5,
     borderColor: colors.gray,
+    borderRadius: 5,
+    padding: '4%',
+  },
+  subCategoryBox: {
     borderRadius: 5,
     width: '26%',
     height: 110,
     padding: 2,
+    marginVertical: '6%',
+  },
+  content: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    width: '100%',
+    justifyContent: 'space-around',
+    marginTop: '2%',
   },
   titleText: {
+    marginTop: '6%',
     textAlign: 'center',
     fontSize: fontSize.subcategory.title,
   },
