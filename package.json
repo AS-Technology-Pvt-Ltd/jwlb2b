@@ -11,12 +11,14 @@
   },
   "dependencies": {
     "@react-native-community/cli": "^4.3.0",
+    "@react-native-community/cli-platform-android": "^4.3.0",
     "@react-native-community/masked-view": "^0.1.7",
     "axios": "^0.19.2",
     "core-util-is": "^1.0.2",
     "mem": "^6.0.1",
     "react": "16.9.0",
     "react-native": "^0.61.5",
+    "react-native-cli": "^2.0.1",
     "react-native-gesture-handler": "^1.6.0",
     "react-native-reanimated": "^1.7.0",
     "react-native-responsive-screen": "^1.4.0",
@@ -24,6 +26,7 @@
     "react-native-screens": "^2.3.0",
     "react-native-svg": "^12.0.3",
     "react-navigation": "^4.2.2",
+    "react-navigation-drawer": "^2.4.4",
     "react-navigation-stack": "^2.2.3"
   },
   "devDependencies": {
@@ -38,5 +41,18 @@
   },
   "jest": {
     "preset": "react-native"
-  }
+  },
+  "description": "B2B application-React Native CLI",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AS-Technology-Pvt-Ltd/jwlb2b.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AS-Technology-Pvt-Ltd/jwlb2b/issues"
+  },
+  "homepage": "https://github.com/AS-Technology-Pvt-Ltd/jwlb2b#readme"
 }
