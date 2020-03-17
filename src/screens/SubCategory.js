@@ -24,12 +24,7 @@ class SubCategory extends React.Component {
           <Text style={styles.subHeading}>
             Choose a sub category as per your requirements
           </Text>
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-around',
-              marginVertical: '8%',
-            }}>
+          <View style={styles.threeBoxContainer}>
             <View style={styles.subCategoryBox}>
               <ImageContainer
                 source={require('../assets/earrings.png')}
@@ -46,12 +41,7 @@ class SubCategory extends React.Component {
               <Text style={styles.titleText}>Gents Rings</Text>
             </View>
           </View>
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-around',
-              marginVertical: '5%',
-            }}>
+          <View style={styles.threeBoxContainer}>
             <View style={styles.subCategoryBox}>
               <ImageContainer source={require('../assets/pendant.png')} />
               <Text style={styles.titleText}>Pendant</Text>
@@ -67,12 +57,7 @@ class SubCategory extends React.Component {
               <Text style={styles.titleText}>Necklace</Text>
             </View>
           </View>
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-around',
-              marginVertical: '5%',
-            }}>
+          <View style={styles.threeBoxContainer}>
             <View style={styles.subCategoryBox}>
               <ImageContainer
                 source={require('../assets/gentscastingrings.png')}
@@ -88,12 +73,7 @@ class SubCategory extends React.Component {
               <Text style={styles.titleText}>Kanthi Sets</Text>
             </View>
           </View>
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-around',
-              marginVertical: '5%',
-            }}>
+          <View style={styles.threeBoxContainer}>
             <View style={styles.subCategoryBox}>
               <ImageContainer source={require('../assets/mangalsutra.png')} />
               <Text style={styles.titleText}>Mangalsutra</Text>
@@ -122,6 +102,11 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     textAlign: 'center',
     color: 'grey',
+  },
+  threeBoxContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    marginVertical: '5%',
   },
   subCategoryBox: {
     borderWidth: 0.5,
