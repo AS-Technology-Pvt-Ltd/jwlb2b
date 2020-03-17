@@ -22,9 +22,10 @@ import CategoryBox from '../components/CategoryBox';
 
 class PlaceAnOrder extends React.Component {
   render() {
+    const {navigation} = this.props;
     return (
       <MasterLayout>
-        <Header />
+        <Header navigation={navigation} />
 
         <ScrollView
           style={{height: '100%'}}
