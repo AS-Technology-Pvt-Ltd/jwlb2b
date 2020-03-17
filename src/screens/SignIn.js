@@ -6,6 +6,7 @@ import {
   KeyboardAvoidingView,
   TouchableOpacity,
   Alert,
+  ScrollView,
 } from 'react-native';
 import InputField from '../components/InputField';
 import {
@@ -54,54 +55,53 @@ export default class SignIn extends Component {
     const {userEmailorPhone, password} = this.state;
     return (
       <MasterLayout>
-        <KeyboardAvoidingView
-          style={styles.container}
-          behavior="padding"
-          disabled>
-          <View style={styles.logo}>
-            <Logo />
-          </View>
-          <ScreenTitle title="LOG INTO YOUR ACCOUNT" />
-          <InputField
-            icon={require('../assets/phone.png')}
-            placeholder={'Enter Your Mobile No or Email Id'}
-            maxLength={22}
-            value={userEmailorPhone}
-            onChangeText={this.userEmailorPhoneHandler}
-          />
-          <InputField
-            icon={require('../assets/lock.png')}
-            placeholder={'Your Password'}
-            maxLength={12}
-            value={password}
-            onChangeText={this.userPasswordHandler}
-          />
-          <TouchableOpacity onPress={() => this.signInHandler()}>
-            <View style={styles.iconContainer}>
-              <ImageContainer source={require('../assets/forward.png')} />
+        <KeyboardAvoidingView style={styles.container} disabled>
+          <ScrollView showsVerticalScrollIndicator={false}>
+            <View style={styles.logo}>
+              <Logo />
             </View>
-          </TouchableOpacity>
-
-          <View style={styles.customNavigator}>
-            <Navigator
-              title={'Or,Sign In Using OTP'}
-              handler={() => this.props.navigation.navigate('SignInWithOtp')}
+            <ScreenTitle title="LOG INTO YOUR ACCOUNT" />
+            <InputField
+              icon={require('../assets/phone.png')}
+              placeholder={'Enter Your Mobile No or Email Id'}
+              maxLength={22}
+              value={userEmailorPhone}
+              onChangeText={this.userEmailorPhoneHandler}
             />
-          </View>
-          <View style={styles.navigator}>
-            <View>
+            <InputField
+              icon={require('../assets/lock.png')}
+              placeholder={'Your Password'}
+              maxLength={12}
+              value={password}
+              onChangeText={this.userPasswordHandler}
+            />
+            <TouchableOpacity onPress={() => this.signInHandler()}>
+              <View style={styles.iconContainer}>
+                <ImageContainer source={require('../assets/forward.png')} />
+              </View>
+            </TouchableOpacity>
+
+            <View style={styles.customNavigator}>
               <Navigator
-                title={'Sign Up'}
-                handler={() => Alert.alert('Under Development')}
+                title={'Or,Sign In Using OTP'}
+                handler={() => this.props.navigation.navigate('SignInWithOtp')}
               />
             </View>
-            <View>
-              <Navigator
-                title={'Forgot Password ?'}
-                handler={() => Alert.alert('Under Development')}
-              />
+            <View style={styles.navigator}>
+              <View>
+                <Navigator
+                  title={'Sign Up'}
+                  handler={() => Alert.alert('Under Development')}
+                />
+              </View>
+              <View>
+                <Navigator
+                  title={'Forgot Password ?'}
+                  handler={() => Alert.alert('Under Development')}
+                />
+              </View>
             </View>
-          </View>
+          </ScrollView>
         </KeyboardAvoidingView>
       </MasterLayout>
     );
