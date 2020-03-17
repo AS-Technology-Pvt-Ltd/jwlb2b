@@ -17,19 +17,19 @@ class ProductDetails extends React.Component {
     const {navigation} = this.props;
     return (
       <MasterLayout>
-        <Header />
+        <Header navigation={navigation} />
 
         <ScrollView
           style={{height: '100%'}}
           contentContainerStyle={{paddingBottom: hp('40%')}}>
-          <View style={styles.searchBarHeader}>
+          {/* <View style={styles.searchBarHeader}>
             <View style={styles.leftSearchBar}>
               <Text>hello</Text>
             </View>
             <View style={styles.rightSide}>
               <Text>hello</Text>
             </View>
-          </View>
+          </View> */}
           <View style={styles.contentBox}>
             <View style={styles.leftImages}>
               <View style={{boderWidth: 3}}></View>
@@ -48,7 +48,7 @@ class ProductDetails extends React.Component {
               <View style={styles.imageBox}>
                 <ImageContainer
                   source={require('../assets/product3.png')}
-                  imageStyles={{width: '100%', height: '100%', borderWidth: 1}}
+                  imageStyles={{width: '100%', height: '100%'}}
                 />
               </View>
               <View style={styles.imageBox}>

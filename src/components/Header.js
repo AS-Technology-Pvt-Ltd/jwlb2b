@@ -3,13 +3,24 @@ import {View, StyleSheet, Alert, TouchableOpacity} from 'react-native';
 import colors from '../styles/colors';
 import ImageContainer from './ImageContainer';
 const Header = props => {
+  const stack = Object.keys(props.navigation).includes('toggleDrawer')
+    ? false
+    : true;
+
+  const leftIcon = stack
+    ? require('../assets/chevron.png')
+    : require('../assets/menu.png');
   return (
     <View>
       <View style={styles.container}>
         <View style={styles.leftContainer}>
           <TouchableOpacity
-            onPress={() => props.navigation.toggleDrawer() || ''}>
-            <ImageContainer source={require('../assets/menu.png')} />
+            onPress={() =>
+              stack
+                ? props.navigation.goBack()
+                : props.navigation.toggleDrawer()
+            }>
+            <ImageContainer source={leftIcon} />
           </TouchableOpacity>
         </View>
         <View style={styles.centerContainer}>
