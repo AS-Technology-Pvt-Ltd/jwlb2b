@@ -16,7 +16,7 @@ import SignIn from '../screens/SignIn';
 import SignInWithOtp from '../screens/SignInWithOtp';
 import PlaceAnOrder from '../screens/PlaceAnOrder';
 import SubCategory from '../screens/SubCategory';
-
+import ProductDetails from '../screens/PlaceAnOrder';
 import Home from '../screens/Home';
 import colors from '../styles/colors';
 import fontSize from '../styles/fontSize';
@@ -119,6 +119,9 @@ const AppNavigator = createStackNavigator(
       screen: SubCategory,
     },
     Dashboard: {screen: Dashboard},
+    ProductDetails: {
+      screen: ProductDetails,
+    },
   },
   {headerMode: null, initialRouteName: 'Dashboard'},
 );
