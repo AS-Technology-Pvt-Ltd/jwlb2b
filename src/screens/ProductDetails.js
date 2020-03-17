@@ -17,7 +17,7 @@ class ProductDetails extends React.Component {
     const {navigation} = this.props;
     return (
       <MasterLayout>
-        <Header navigation={navigation} />
+        <Header />
 
         <ScrollView
           style={{height: '100%'}}

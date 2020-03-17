@@ -111,19 +111,18 @@ const AppNavigator = createStackNavigator(
     SignInWithOtp: {
       screen: SignInWithOtp,
     },
-
+    Dashboard: {screen: Dashboard},
     PlaceAnOrder: {
       screen: PlaceAnOrder,
     },
     SubCategory: {
       screen: SubCategory,
     },
-    Dashboard: {screen: Dashboard},
     ProductDetails: {
       screen: ProductDetails,
     },
   },
-  {headerMode: null, initialRouteName: 'Dashboard'},
+  {headerMode: null, initialRouteName: 'SignIn'},
 );
 
 const styles = StyleSheet.create({
