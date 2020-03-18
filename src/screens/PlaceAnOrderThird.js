@@ -11,68 +11,28 @@ import {
 import colors from '../styles/colors';
 import fontSize from '../styles/fontSize';
 
-class SubCategory extends React.Component {
+class PlaceAnOrderThird extends React.Component {
   render() {
     const subCategory = [
       {
         id: 1,
-        title: 'Earrings',
-        image: require('../assets/earrings.png'),
+        title: 'Antique',
+        image: require('../assets/antique.png'),
       },
       {
         id: 2,
-        title: 'Ladies Rings',
-        image: require('../assets/ladiesrings.png'),
+        title: 'Light Rings',
+        image: require('../assets/lightrings.png'),
       },
       {
         id: 3,
-        title: 'Gents Rings',
-        image: require('../assets/gentsrings.png'),
+        title: 'Ultra Light Rings',
+        image: require('../assets/ultralightrings.png'),
       },
       {
         id: 4,
-        title: 'Pendant',
-        image: require('../assets/pendant.png'),
-      },
-      {
-        id: 5,
-        title: 'Ladies Casting Rings',
-        image: require('../assets/ladiescastingrings.png'),
-      },
-      {
-        id: 6,
-        title: 'Necklace',
-        image: require('../assets/necklace.png'),
-      },
-      {
-        id: 7,
-        title: 'Gents Casting Rings',
-        image: require('../assets/gentscastingrings.png'),
-      },
-      {
-        id: 8,
-        title: 'Bangles',
-        image: require('../assets/bangles.png'),
-      },
-      {
-        id: 9,
-        title: 'Kanthi Sets',
-        image: require('../assets/kanthisets.png'),
-      },
-      {
-        id: 10,
-        title: 'Mangalsutra',
-        image: require('../assets/mangalsutra.png'),
-      },
-      {
-        id: 11,
-        title: 'Tika',
-        image: require('../assets/tika.png'),
-      },
-      {
-        id: 12,
-        title: 'Nath',
-        image: require('../assets/nath.png'),
+        title: 'Umbrella Rings',
+        image: require('../assets/umbrellarings.png'),
       },
     ];
 
@@ -81,9 +41,7 @@ class SubCategory extends React.Component {
         <View style={styles.subCategoryBox} key={item.id}>
           <View style={styles.imageTextContainer}>
             <TouchableOpacity
-              onPress={() =>
-                this.props.navigation.navigate('PlaceAnOrderThird')
-              }>
+              onPress={() => this.props.navigation.navigate('ProductDetails')}>
               <ImageContainer
                 source={item.image}
                 imageStyles={{
@@ -98,6 +56,7 @@ class SubCategory extends React.Component {
         </View>
       );
     });
+
     const {navigation} = this.props;
     return (
       <MasterLayout>
@@ -129,7 +88,7 @@ const styles = StyleSheet.create({
   },
   imageTextContainer: {
     width: '100%',
-    height: '130%',
+    height: '120%',
     borderWidth: 0.5,
     borderColor: colors.gray,
     borderRadius: 5,
@@ -138,9 +97,9 @@ const styles = StyleSheet.create({
   subCategoryBox: {
     borderRadius: 5,
     width: '26%',
-    height: 110,
+    height: 90,
     padding: 2,
-    marginVertical: '6%',
+    marginVertical: '9%',
   },
   content: {
     flexDirection: 'row',
@@ -156,4 +115,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SubCategory;
+export default PlaceAnOrderThird;

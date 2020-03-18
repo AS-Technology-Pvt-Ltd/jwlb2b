@@ -17,6 +17,8 @@ import SignInWithOtp from '../screens/SignInWithOtp';
 import PlaceAnOrder from '../screens/PlaceAnOrder';
 import SubCategory from '../screens/SubCategory';
 import ProductDetails from '../screens/ProductDetails';
+import PlaceAnOrderThird from '../screens/PlaceAnOrderThird';
+import CartPageOne from '../screens/CartPageOne';
 import Home from '../screens/Home';
 import colors from '../styles/colors';
 import fontSize from '../styles/fontSize';
@@ -121,8 +123,14 @@ const AppNavigator = createStackNavigator(
     ProductDetails: {
       screen: ProductDetails,
     },
+    CartPageOne: {
+      screen: CartPageOne,
+    },
+    PlaceAnOrderThird: {
+      screen: PlaceAnOrderThird,
+    },
   },
-  {headerMode: null, initialRouteName: 'SignIn'},
+  {headerMode: null, initialRouteName: 'Dashboard'},
 );
 
 const styles = StyleSheet.create({

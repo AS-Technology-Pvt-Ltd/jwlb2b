@@ -174,13 +174,19 @@ class ProductDetails extends React.Component {
               </View>
               <View style={{flexDirection: 'row', marginTop: 120}}>
                 <View style={styles.buttonView}>
-                  <CustomButton title="Add to Cart" />
+                  <CustomButton
+                    title="Add to Cart"
+                    onPress={() => alert.Alert('Add to cart')}
+                  />
                 </View>
                 <View style={styles.buttonView}>
                   <CustomButton
                     title="Buy Now"
                     titleStyle={{color: colors.white}}
                     buttonStyle={{backgroundColor: colors.darkGray}}
+                    onPress={() =>
+                      this.props.navigation.navigate('CartPageOne')
+                    }
                   />
                 </View>
               </View>
