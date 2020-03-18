@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: hp('12%'),
+    marginTop: hp('10%'),
     marginBottom: hp('5%'),
   },
   empty: {width: '50%', borderWidth: 2, marginVertical: '5%'},

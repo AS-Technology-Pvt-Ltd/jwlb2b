@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     textDecorationLine: 'underline',
   },
   titleContainer: {
-    marginVertical: hp('5%'),
+    marginVertical: hp('3%'),
   },
 });
 export default Navigator;
