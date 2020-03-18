@@ -103,9 +103,7 @@ class SubCategory extends React.Component {
       <MasterLayout>
         <Header navigation={navigation} />
 
-        <ScrollView
-          // style={{height: '100%'}}
-          contentContainerStyle={{paddingBottom: hp('40%')}}>
+        <ScrollView contentContainerStyle={{paddingBottom: hp('40%')}}>
           <Text style={styles.heading}>Select Sub Category</Text>
           <Text style={styles.subHeading}>
             Choose a sub category as per your requirements
@@ -129,7 +127,7 @@ const styles = StyleSheet.create({
   },
   imageTextContainer: {
     width: '100%',
-    height: '130%',
+    height: 110,
     borderWidth: 0.5,
     borderColor: colors.gray,
     borderRadius: 5,
