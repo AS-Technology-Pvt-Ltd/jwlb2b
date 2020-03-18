@@ -9,9 +9,75 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 import colors from '../styles/colors';
+import fontSize from '../styles/fontSize';
 
 class Home extends React.Component {
   render() {
+    const dashboardIcon = [
+      {
+        id: 1,
+        name: 'Bhaav Today',
+        image: require('../assets/bag.png'),
+      },
+      {
+        id: 2,
+        name: 'Place An Order',
+        image: require('../assets/placeorder.png'),
+      },
+      {
+        id: 3,
+        name: 'Customized Order',
+        image: require('../assets/customiseorder.png'),
+      },
+      {
+        id: 4,
+        name: 'Track Your Order',
+        image: require('../assets/delivery.png'),
+      },
+      {
+        id: 5,
+        name: 'Initiate Return',
+        image: require('../assets/returnboy.png'),
+      },
+      {
+        id: 6,
+        name: 'Accounts',
+        image: require('../assets/accounts.png'),
+      },
+      {
+        id: 7,
+        name: 'Book A Complaint',
+        image: require('../assets/support.png'),
+      },
+      {
+        id: 8,
+        name: 'Support',
+        image: require('../assets/support.png'),
+      },
+      {
+        id: 9,
+        name: 'Our Policy',
+        image: require('../assets/policy.png'),
+      },
+      {
+        id: 10,
+        name: 'Campaigns',
+        image: require('../assets/folder.png'),
+      },
+    ];
+    const dashboardIconJSX = dashboardIcon.map(item => {
+      return (
+        <TouchableOpacity
+          onPress={() => this.props.navigation.navigate('PlaceAnOrder')}>
+          <View style={styles.iconBox}>
+            <View style={styles.iconContainer}>
+              <ImageContainer source={item.image} />
+            </View>
+            <Text style={styles.titleName}>{item.name}</Text>
+          </View>
+        </TouchableOpacity>
+      );
+    });
     const {navigation} = this.props;
     return (
       <MasterLayout>
@@ -49,103 +115,7 @@ class Home extends React.Component {
         <ScrollView
           style={{height: '100%'}}
           contentContainerStyle={{paddingBottom: hp('40%')}}>
-          <View style={styles.twoBoxWrap}>
-            <TouchableOpacity onPress={() => Alert.alert('Under Development')}>
-              <View style={styles.iconBox}>
-                <View style={styles.iconContainer}>
-                  <ImageContainer source={require('../assets/bag.png')} />
-                </View>
-                <Text>Bhaav Today</Text>
-              </View>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => this.props.navigation.navigate('PlaceAnOrder')}>
-              <View style={styles.iconBox}>
-                <View style={styles.iconContainer}>
-                  <ImageContainer
-                    source={require('../assets/placeorder.png')}
-                  />
-                </View>
-                <Text>Place An Order</Text>
-              </View>
-            </TouchableOpacity>
-          </View>
-          <View style={styles.twoBoxWrap}>
-            <TouchableOpacity onPress={() => Alert.alert('Under Development')}>
-              <View style={styles.iconBox}>
-                <View style={styles.iconContainer}>
-                  <ImageContainer
-                    source={require('../assets/customiseorder.png')}
-                  />
-                </View>
-                <Text>Customized Order</Text>
-              </View>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => Alert.alert('Under Development')}>
-              <View style={styles.iconBox}>
-                <View style={styles.iconContainer}>
-                  <ImageContainer source={require('../assets/delivery.png')} />
-                </View>
-                <Text style={{flex: 1, flexWrap: 'wrap'}}>
-                  Track Your Order
-                </Text>
-              </View>
-            </TouchableOpacity>
-          </View>
-          <View style={styles.twoBoxWrap}>
-            <TouchableOpacity onPress={() => Alert.alert('Under Development')}>
-              <View style={styles.iconBox}>
-                <View style={styles.iconContainer}>
-                  <ImageContainer source={require('../assets/returnboy.png')} />
-                </View>
-                <Text>Initiate Return</Text>
-              </View>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => Alert.alert('Under Development')}>
-              <View style={styles.iconBox}>
-                <View style={styles.iconContainer}>
-                  <ImageContainer source={require('../assets/accounts.png')} />
-                </View>
-                <Text>Accounts</Text>
-              </View>
-            </TouchableOpacity>
-          </View>
-          <View style={styles.twoBoxWrap}>
-            <TouchableOpacity onPress={() => Alert.alert('Under Development')}>
-              <View style={styles.iconBox}>
-                <View style={styles.iconContainer}>
-                  <ImageContainer source={require('../assets/support.png')} />
-                </View>
-                <Text>Book A Complaint</Text>
-              </View>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => Alert.alert('Under Development')}>
-              <View style={styles.iconBox}>
-                <View style={styles.iconContainer}>
-                  <ImageContainer source={require('../assets/support.png')} />
-                </View>
-                <Text>Support</Text>
-              </View>
-            </TouchableOpacity>
-          </View>
-          <View style={styles.twoBoxWrap}>
-            <TouchableOpacity onPress={() => Alert.alert('Under Development')}>
-              <View style={styles.iconBox}>
-                <View style={styles.iconContainer}>
-                  <ImageContainer source={require('../assets/policy.png')} />
-                </View>
-                <Text>Our Policy</Text>
-              </View>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => Alert.alert('Under Development')}>
-              <View style={styles.iconBox}>
-                <View style={styles.iconContainer}>
-                  <ImageContainer source={require('../assets/folder.png')} />
-                </View>
-                <Text>Campaigns</Text>
-              </View>
-            </TouchableOpacity>
-          </View>
+          <View style={styles.content}>{dashboardIconJSX}</View>
         </ScrollView>
       </MasterLayout>
     );
@@ -156,7 +126,6 @@ const styles = StyleSheet.create({
   dashboardIcon: {
     width: 28,
     height: 28,
-    paddingBottom: 5,
     alignSelf: 'center',
   },
   dashboardContainer: {
@@ -164,18 +133,19 @@ const styles = StyleSheet.create({
     marginTop: '2%',
     borderBottomWidth: 0.3,
   },
-  twoBoxWrap: {
-    flexDirection: 'row',
-    width: wp('100%'),
-    justifyContent: 'space-around',
+  titleName: {
+    fontSize: fontSize.dashboard.title,
+    textAlign: 'center',
+    paddingTop: 10,
   },
   iconContainer: {
-    width: 60,
-    height: 70,
+    width: 70,
+    height: 80,
     paddingBottom: 5,
   },
   iconBox: {
-    width: wp('30%'),
+    width: wp('32%'),
+    height: 130,
     borderWidth: 1,
     borderColor: colors.darkGray,
     borderRadius: 5,
@@ -198,6 +168,15 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     flexDirection: 'row',
     paddingTop: 5,
+  },
+  content: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    flexWrap: 'wrap',
+    width: '86%',
+
+    marginLeft: 'auto',
+    marginRight: 'auto',
   },
 });
 
