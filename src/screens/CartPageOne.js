@@ -11,14 +11,15 @@ import {
 import colors from '../styles/colors';
 import fontSize from '../styles/fontSize';
 import CustomButton from '../components/CustomButton';
-
+import {Icon} from 'native-base';
 class SubCategory extends React.Component {
   render() {
     const CartItems = [
       {
         id: 1,
-        image: require('../assets/earrings.png'),
-        productDetails: 'product',
+        image: require('../assets/1.jpg'),
+        productDetails: '18-LR-BOR-5.5',
+        purity: '18Kt',
         gross: '18 gm',
         net: '3gm',
         wastage: '5.5%',
@@ -28,7 +29,8 @@ class SubCategory extends React.Component {
       {
         id: 2,
         image: require('../assets/earrings.png'),
-        productDetails: 'product',
+        productDetails: '18-LR-BOR-5.5',
+        purity: '18Kt',
         gross: '18 gm',
         net: '3gm',
         wastage: '5.5%',
@@ -41,11 +43,25 @@ class SubCategory extends React.Component {
       return (
         <View style={styles.outerBox} key={item.id}>
           <View style={styles.cartBox}>
-            <View style={styles.titleHeading}>
-              <ImageContainer source={item.image} />
+            <View style={styles.imageBox}>
+              <ImageContainer
+                source={item.image}
+                imageStyles={{
+                  height: 26,
+                  width: 26,
+                }}
+              />
             </View>
             <View style={styles.titleHeadingSecond}>
-              <Text style={styles.textFontTable}>{item.productDetails}</Text>
+              <Text style={styles.productText}>{item.productDetails}</Text>
+              <Text
+                style={{
+                  fontSize: 8.5,
+                  textAlign: 'center',
+                  justifyContent: 'center',
+                }}>
+                {item.purity}
+              </Text>
             </View>
             <View style={styles.titleHeading}>
               <Text style={styles.textFontTable}>{item.gross}</Text>
@@ -62,7 +78,15 @@ class SubCategory extends React.Component {
             <View style={styles.titleHeading}>
               <Text style={styles.textFontTable}>{item.fine}</Text>
             </View>
-            <View style={styles.titleHeading}></View>
+            <View style={styles.titleHeading}>
+              <TouchableOpacity onPress={() => Alert.alert('Delete ')}>
+                <Icon
+                  name="trash"
+                  type="FontAwesome"
+                  style={{fontSize: 20, color: colors.darkRed}}
+                />
+              </TouchableOpacity>
+            </View>
           </View>
         </View>
       );
@@ -115,7 +139,7 @@ class SubCategory extends React.Component {
               }}>
               <View style={styles.cartBox}>
                 <View style={styles.total}>
-                  <Text style={styles.textFontTable}>Total</Text>
+                  <Text style={styles.textFontTable}>Total Wt</Text>
                 </View>
 
                 <View style={styles.titleHeading}>
@@ -136,10 +160,12 @@ class SubCategory extends React.Component {
                 <View style={styles.titleHeading}></View>
               </View>
             </View>
-            <View style={{marginTop: '90%'}}>
+            <View style={{marginTop: hp('32%')}}>
               <View style={styles.commentBox}>
-                <Text>Add Comment(Using Voice or Text)...</Text>
-                <Text>3.7 gm</Text>
+                <Text style={{alignSelf: 'center', paddingLeft: 5}}>
+                  Add Comment(Using Voice or Text)...
+                </Text>
+                <Icon name="microphone" type="FontAwesome" />
               </View>
               <View style={styles.checkoutDetails}>
                 <View style={styles.tableHeading}>
@@ -186,6 +212,7 @@ class SubCategory extends React.Component {
             <CustomButton title="Checkout" titleStyle={{color: colors.white}} />
           </View>
         </View>
+        <View style={{borderWidth: 5, borderColor: colors.lightBlue}}></View>
       </MasterLayout>
     );
   }
@@ -194,10 +221,9 @@ class SubCategory extends React.Component {
 const styles = StyleSheet.create({
   heading: {
     paddingVertical: '5%',
-    paddingLeft: '2%',
+    paddingLeft: '3%',
   },
   cartDetails: {
-    // borderWidth: 1,
     width: '90%',
     marginLeft: 'auto',
     marginRight: 'auto',
@@ -207,32 +233,42 @@ const styles = StyleSheet.create({
     flex: 1,
     alignSelf: 'stretch',
     flexDirection: 'row',
-    //borderTopWidth: 0.5,
-    // borderRightWidth: 0.3,
-    //borderBottomWidth: 0.5,
-    //borderColor: 'red',
-    //borderWidth: 1,
     width: '100%',
-    marginLeft: 'auto',
-    marginRight: 'auto',
   },
   outerBox: {
     borderRightWidth: 0.3,
-    // borderColor: 'red',
     width: '90%',
     marginLeft: 'auto',
     marginRight: 'auto',
     borderBottomWidth: 0.2,
-
-    // borderRadius: 5,
   },
   titleHeading: {
     flex: 0.8,
     alignSelf: 'stretch',
     borderTopWidth: 0.5,
     borderLeftWidth: 0.5,
-    //borderRightWidth: 0.5,
     alignItems: 'center',
+    justifyContent: 'center',
+    padding: 1,
+  },
+  titleHeadingSecond: {
+    flex: 1.5,
+    alignSelf: 'stretch',
+    borderTopWidth: 0.5,
+    borderLeftWidth: 0.5,
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 1,
+  },
+  imageBox: {
+    flex: 0.8,
+    borderTopWidth: 0.5,
+    borderLeftWidth: 0.5,
+    alignItems: 'center',
+    height: '100%',
+    width: '100%',
+    justifyContent: 'center',
+    padding: 1,
   },
   topLeftRadius: {
     borderTopLeftRadius: 2,
@@ -241,32 +277,34 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 2,
   },
   total: {
-    flex: 2.31,
+    flex: 2.41,
     alignSelf: 'stretch',
     borderTopWidth: 0.5,
     borderLeftWidth: 0.5,
     //borderRightWidth: 0.5,
     alignItems: 'center',
   },
-  titleHeadingSecond: {
-    flex: 1.5,
-    alignSelf: 'stretch',
-    borderTopWidth: 0.5,
-    borderLeftWidth: 0.5,
-    //borderWidth: 0.5,
-    alignItems: 'center',
-  },
+
   textFont: {
     fontSize: 10,
     padding: 3,
   },
+  productText: {
+    fontSize: 8.5,
+    paddingVertical: 3,
+    textAlign: 'center',
+    justifyContent: 'center',
+  },
   textFontTable: {
     fontSize: 8.5,
     padding: 3,
+    textAlign: 'center',
+    justifyContent: 'center',
   },
   buttonView: {
     flexDirection: 'row',
     justifyContent: 'space-around',
+    marginVertical: hp('1%'),
   },
   shoppingButton: {
     width: '40%',
@@ -280,16 +318,16 @@ const styles = StyleSheet.create({
     width: '90%',
     marginLeft: 'auto',
     marginRight: 'auto',
-    padding: 10,
+    padding: 5,
     flexDirection: 'row',
     justifyContent: 'space-between',
     borderRadius: 5,
     height: 40,
-    // marginTop: '50%',
   },
   tableHeading: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    // padding: 2,
   },
   checkoutDetails: {
     backgroundColor: colors.lightGray,
@@ -299,7 +337,7 @@ const styles = StyleSheet.create({
     padding: 10,
     marginTop: '2%',
     borderRadius: 5,
-    height: 140,
+    height: 142,
   },
 });
 

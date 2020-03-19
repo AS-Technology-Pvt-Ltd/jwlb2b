@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
   },
   buttonWrap: {
     borderWidth: 1,
-    borderColor: colors.lightBlue,
+    borderColor: colors.darkGray,
   },
 });
 
