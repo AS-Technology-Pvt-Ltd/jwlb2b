@@ -13,7 +13,7 @@
     "@react-native-community/cli": "^4.3.0",
     "@react-native-community/cli-platform-android": "^4.3.0",
     "@react-native-community/masked-view": "^0.1.7",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "core-util-is": "^1.0.2",
     "mem": "^6.0.1",
     "native-base": "^2.13.12",
